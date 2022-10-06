@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jtechlog.mybatis.EmployeeRepository">
+    <insert id="saveEmployee" useGeneratedKeys="true" keyProperty="id">
+        insert into employees(id, name) values (seq_employees.nextval, #{name})
+    </insert>
+
+    <select id="findEmployeeById" resultType="jtechlog.mybatis.Employee">
+        select id, name from employees where id = #{id}
+    </select>
+</mapper>
